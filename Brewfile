@@ -5,7 +5,14 @@ brew "codex"
 brew "git"
 brew "jq"
 brew "rustup"
+brew "starship"
 brew "uv"
+brew "zoxide"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# Fonts
+cask "font-fira-code-nerd-font"
 
 # Apps
 cask "alt-tab"
