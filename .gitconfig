@@ -1,0 +1,16 @@
+[user]
+	name = Trevor Trinh
+	email = 50549133+trevortrinh@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[pull]
+	ff = only
+[push]
+	autoSetupRemote = true
+[core]
+	autocrlf = input
