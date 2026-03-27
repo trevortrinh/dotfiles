@@ -1,0 +1,39 @@
+# Two-line prompt with clean second line
+format = """$directory$git_branch$git_status$fill$cmd_duration
+$character"""
+
+# Shorter paths: ~/dev/project instead of full path
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+
+# Minimal git
+[git_branch]
+format = "on [$branch]($style) "
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+
+# Only show command duration if > 3 seconds
+[cmd_duration]
+min_time = 3000
+format = "took [$duration]($style)"
+
+# Right-align the duration
+[fill]
+symbol = " "
+
+# Clean prompt character
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+# Disable noisy modules
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[package]
+disabled = true
