@@ -7,6 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_install_extensions": {
+    "dockerfile": true,
+    "git-firefly": true,
+    "html": true,
+    "just": true,
+    "make": true,
+    "material-icon-theme": true,
+    "sql": true,
+    "toml": true,
+  },
   "terminal": {
     "font_family": "FiraCode Nerd Font",
   },
