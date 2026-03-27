@@ -1,0 +1,40 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-shift-g": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-shift-g": "git_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-k": "agent::ToggleFocus"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-k": "agent::ToggleFocus"
+    }
+  },
+  {
+    "context": "AgentPanel || ContextEditor || (MessageEditor > Editor)",
+    "bindings": {
+      "cmd-k": "workspace::ToggleRightDock",
+      "cmd-n": ["agent::NewExternalAgentThread", { "agent": { "custom": { "name": "claude-acp" } } }]
+    }
+  }
+]
