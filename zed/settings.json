@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "tree_view": true
+  },
   "auto_install_extensions": {
     "dockerfile": true,
     "git-firefly": true,
@@ -20,7 +23,11 @@
   "terminal": {
     "font_family": "FiraCode Nerd Font",
   },
-  "icon_theme": "Material Icon Theme",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
   "agent_servers": {
     "codex-acp": {
       "type": "registry",
@@ -40,7 +47,7 @@
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
     "dark": "One Dark",
   },
