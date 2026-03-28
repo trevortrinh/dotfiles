@@ -1,0 +1,78 @@
+{
+  "$schema": "https:\/\/schema.linearmouse.app\/0.10.4",
+  "schemes": [
+    {
+      "if": {
+        "device": {
+          "category": "trackpad",
+          "productID": "0x0",
+          "productName": "Apple Internal Keyboard \/ Trackpad",
+          "serialNumber": "FM7HL50BM9A0000DZR+ANBB",
+          "vendorID": "0x0"
+        }
+      },
+      "pointer": {
+        "disableAcceleration": false
+      }
+    },
+    {
+      "if": {
+        "device": {
+          "category": "mouse",
+          "productID": "0xc548",
+          "productName": "USB Receiver",
+          "vendorID": "0x46d"
+        }
+      },
+      "pointer": {
+        "disableAcceleration": true
+      },
+      "scrolling": {
+        "reverse": {
+          "vertical": true
+        }
+      }
+    },
+    {
+      "buttons": {
+        "gesture": {
+          "actions": {
+            "down": "appExpose",
+            "left": "missionControl.spaceLeft",
+            "right": "missionControl.spaceRight",
+            "up": "missionControl"
+          },
+          "button": 2,
+          "enabled": true,
+          "threshold": 50
+        }
+      },
+      "if": {
+        "device": {
+          "category": "mouse",
+          "productID": "0xb015",
+          "productName": "M720 Triathlon",
+          "serialNumber": "2389691E4DD77C24",
+          "vendorID": "0x46d"
+        }
+      },
+      "pointer": {
+        "disableAcceleration": true
+      },
+      "scrolling": {
+        "acceleration": {
+          "vertical": 1
+        },
+        "distance": {
+          "vertical": 3
+        },
+        "reverse": {
+          "vertical": true
+        },
+        "speed": {
+          "vertical": 0
+        }
+      }
+    }
+  ]
+}
