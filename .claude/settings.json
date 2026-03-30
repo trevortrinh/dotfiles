@@ -6,6 +6,8 @@
       "Write",
       "Glob",
       "Grep",
+      "WebFetch",
+      "WebSearch",
       "Bash(ls *)",
       "Bash(find *)",
       "Bash(cat *)",
