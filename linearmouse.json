@@ -1,76 +1,178 @@
 {
-  "$schema": "https:\/\/schema.linearmouse.app\/0.10.4",
-  "schemes": [
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.4",
+  "schemes" : [
     {
-      "if": {
-        "device": {
-          "category": "trackpad",
-          "productID": "0x0",
-          "productName": "Apple Internal Keyboard \/ Trackpad",
-          "serialNumber": "FM7HL50BM9A0000DZR+ANBB",
-          "vendorID": "0x0"
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "productID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "serialNumber" : "FM7HL50BM9A0000DZR+ANBB",
+          "vendorID" : "0x0"
         }
       },
-      "pointer": {
-        "disableAcceleration": false
+      "pointer" : {
+        "disableAcceleration" : false
       }
     },
     {
-      "if": {
-        "device": {
-          "category": "mouse",
-          "productID": "0xc548",
-          "productName": "USB Receiver",
-          "vendorID": "0x46d"
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "productID" : "0x0",
+          "productName" : "Apple Internal Keyboard \/ Trackpad",
+          "vendorID" : "0x0"
         }
       },
-      "pointer": {
-        "disableAcceleration": true
+      "pointer" : {
+        "acceleration" : "unset",
+        "disableAcceleration" : false,
+        "redirectsToScroll" : false,
+        "speed" : "unset"
       },
-      "scrolling": {
-        "reverse": {
-          "vertical": true
+      "scrolling" : {
+        "acceleration" : 1,
+        "reverse" : false
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "trackpad",
+          "productID" : "0x265",
+          "productName" : "BB Magic Trackpad",
+          "serialNumber" : "C0:95:6D:02:5E:72",
+          "vendorID" : "0x4c"
+        }
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : false
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc548",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "reverse" : {
+          "vertical" : true
         }
       }
     },
     {
-      "buttons": {
-        "gesture": {
-          "actions": {
-            "down": "appExpose",
-            "left": "missionControl.spaceLeft",
-            "right": "missionControl.spaceRight",
-            "up": "missionControl"
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc539",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 1.6311,
+        "disableAcceleration" : true,
+        "speed" : 0.2125
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "distance" : {
+          "vertical" : 3
+        },
+        "reverse" : {
+          "vertical" : true
+        },
+        "speed" : {
+          "vertical" : 0
+        }
+      }
+    },
+    {
+      "buttons" : {
+        "gesture" : {
+          "actions" : {
+            "down" : "appExpose",
+            "left" : "missionControl.spaceLeft",
+            "right" : "missionControl.spaceRight",
+            "up" : "missionControl"
           },
-          "button": 2,
-          "enabled": true,
-          "threshold": 50
+          "button" : 2,
+          "enabled" : true,
+          "threshold" : 50
         }
       },
-      "if": {
-        "device": {
-          "category": "mouse",
-          "productID": "0xb015",
-          "productName": "M720 Triathlon",
-          "serialNumber": "2389691E4DD77C24",
-          "vendorID": "0x46d"
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xb015",
+          "productName" : "M720 Triathlon",
+          "serialNumber" : "2389691E4DD77C24",
+          "vendorID" : "0x46d"
         }
       },
-      "pointer": {
-        "disableAcceleration": true
+      "pointer" : {
+        "disableAcceleration" : true
       },
-      "scrolling": {
-        "acceleration": {
-          "vertical": 1
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
         },
-        "distance": {
-          "vertical": 3
+        "distance" : {
+          "vertical" : 3
         },
-        "reverse": {
-          "vertical": true
+        "reverse" : {
+          "vertical" : true
         },
-        "speed": {
-          "vertical": 0
+        "speed" : {
+          "vertical" : 0
+        }
+      }
+    },
+    {
+      "buttons" : {
+        "gesture" : {
+          "actions" : {
+            "down" : "appExpose",
+            "left" : "missionControl.spaceLeft",
+            "right" : "missionControl.spaceRight",
+            "up" : "missionControl"
+          },
+          "button" : 2,
+          "enabled" : true,
+          "threshold" : 50
+        },
+        "universalBackForward" : true
+      },
+      "if" : {
+        "device" : {
+          "category" : "mouse",
+          "productID" : "0xc53f",
+          "productName" : "USB Receiver",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 0.4015,
+        "disableAcceleration" : true
+      },
+      "scrolling" : {
+        "acceleration" : {
+          "vertical" : 1
+        },
+        "reverse" : {
+          "vertical" : true
         }
       }
     }
