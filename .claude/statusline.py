@@ -17,7 +17,7 @@ data = json.load(sys.stdin)
 R = "\033[0m"
 DIM = "\033[2m"
 PURPLE = "\033[38;2;184;176;245m"  # Claude progress lavender
-WIDTH = 6  # bar cells
+WIDTH = 8  # bar cells
 
 
 def bar(pct, width=WIDTH):
