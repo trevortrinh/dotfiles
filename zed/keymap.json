@@ -1,14 +1,14 @@
 [
   {
-    "context": "Workspace",
+    "context": "Editor",
     "bindings": {
-      "cmd-shift-g": "git_panel::ToggleFocus"
+      "cmd-shift-g": null
     }
   },
   {
     "context": "Workspace",
-    "unbind": {
-      "ctrl-shift-g": "git_panel::ToggleFocus"
+    "bindings": {
+      "cmd-shift-g": "git_panel::ToggleFocus"
     }
   },
   {

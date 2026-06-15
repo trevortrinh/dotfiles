@@ -14,3 +14,6 @@ eval "$(zoxide init zsh)"
 
 # starship prompt (keep last)
 eval "$(starship init zsh)"
+
+# podman
+sudo ln -s /opt/homebrew/bin/podman /usr/local/bin/docker

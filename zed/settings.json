@@ -1,6 +1,25 @@
 {
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "agent": {
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "minimap": {
+    "show": "always",
+    "display_in": "active_editor",
+  },
   "git_panel": {
-    "tree_view": true
+    "dock": "left",
+    "tree_view": true,
   },
   "auto_install_extensions": {
     "dockerfile": true,
@@ -11,37 +30,40 @@
     "make": true,
     "material-icon-theme": true,
     "sql": true,
-    "toml": true
+    "toml": true,
   },
   "terminal": {
-    "font_family": "FiraCode Nerd Font"
+    "font_family": "FiraCode Nerd Font",
   },
   "icon_theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "Material Icon Theme",
-    "dark": "Material Icon Theme"
+    "dark": "Material Icon Theme",
   },
   "agent_servers": {
     "codex-acp": {
-      "type": "registry"
+      "default_config_options": {
+        "reasoning_effort": "xhigh"
+      },
+      "type": "registry",
     },
     "claude-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "session": {
-    "trust_all_worktrees": true
+    "trust_all_worktrees": true,
   },
   "telemetry": {
     "diagnostics": false,
-    "metrics": false
+    "metrics": false,
   },
   "base_keymap": "Cursor",
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
-    "mode": "dark",
+    "mode": "light",
     "light": "One Light",
-    "dark": "One Dark"
-  }
+    "dark": "One Dark Pro",
+  },
 }
