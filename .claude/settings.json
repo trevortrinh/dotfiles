@@ -1,10 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true
+    "warp@claude-code-warp": true
   },
   "permissions": {
     "allow": [
@@ -47,7 +44,14 @@
       "Bash(docker logs *)",
       "Bash(docker build *)",
       "Bash(docker run *)",
-      "Bash(brew *)"
+      "Bash(brew *)",
+      "Bash(grep *)",
+      "Bash(pdftotext *)",
+      "Bash(for dir:*)",
+      "Bash(do echo:*)",
+      "Bash(done)",
+      "WebFetch(domain:github.com)",
+      "Read(//tmp/**)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -57,6 +61,22 @@
       "Read(./.env.*)",
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)"
-    ]
-  }
+    ],
+    "defaultMode": "auto"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.py",
+    "padding": 0,
+    "refreshInterval": 1
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "skipAutoPermissionPrompt": true
 }
