@@ -47,7 +47,34 @@
       "Bash(docker logs *)",
       "Bash(docker build *)",
       "Bash(docker run *)",
-      "Bash(brew *)"
+      "Bash(brew *)",
+      "Bash(grep *)",
+      "Bash(pdftotext *)",
+      "Bash(find /Users/trevor.trinh/Developer/auros/dex-proxy/harbor -type d -name *wallet* -o -type d -name *key*)",
+      "Read(//Users/trevor.trinh/Developer/auros/harbor-test-scripts/**)",
+      "Read(//Users/trevor.trinh/Developer/auros/**)",
+      "Bash(for dir:*)",
+      "Bash(do echo:*)",
+      "Read(//Users/trevor.trinh/Developer/auros/dex-proxy/$dir/dex_proxy/**)",
+      "Bash(done)",
+      "WebFetch(domain:github.com)",
+      "Bash(grep -r \"trade\\\\|fill\" /Users/trevor.trinh/Developer/auros/dex-proxy/harbor/harbor.config*.json)",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\(''dex_proxy/harbor.py''\\).read\\(\\)\\); print\\(''harbor.py: OK''\\)\")",
+      "Bash(python3 -c \"import ast; ast.parse\\(open\\(''dex_proxy/client.py''\\).read\\(\\)\\); print\\(''client.py: OK''\\)\")",
+      "Bash(grep -n \"get_markets\\\\|get_balance\\\\|get_depth\\\\|''/public\" /Users/trevor.trinh/Developer/auros/dex-proxy/harbor/tests/functional/*.py)",
+      "Bash(curl -s http://localhost:1958/docs)",
+      "Bash(ls -la /Users/trevor.trinh/Developer/auros/dex-proxy/py_dex_common/py_dex_common/dexes/whitelisting*)",
+      "Bash(grep -l \"OrderCache\\\\|order_cache\" /Users/trevor.trinh/Developer/auros/dex-proxy/*/dex_proxy/*dex.py /Users/trevor.trinh/Developer/auros/dex-proxy/*/dex_proxy/*.py)",
+      "Bash(find /Users/trevor.trinh/Developer/auros/dex-proxy -type d -name *fordefi*)",
+      "Bash(python3 -c \"import pyutils; print\\(pyutils.__file__\\)\")",
+      "Bash(python -m py_compile dex_proxy/harbor.py)",
+      "Bash(python -m py_compile dex_proxy/order_cache.py)",
+      "Bash(python3 -m py_compile dex_proxy/harbor.py)",
+      "Bash(python3 -m py_compile dex_proxy/order_cache.py)",
+      "Bash(grep -r \"spawn\\\\|asyncio.create_task\" /Users/trevor.trinh/Developer/auros/dex-proxy/ethereal/dex_proxy/*.py)",
+      "Bash(curl -sS -o /tmp/h.json -w 'http=%{http_code} size=%{size_download} ct=%{content_type}\\\\n' https://api.harbor-dev.xyz/api/v1/docs/__TRACKED_VAR__)",
+      "Read(//tmp/**)",
+      "Bash(curl -sS \"https://api.harbor-dev.xyz/api/v1/docs\" -o /tmp/docs.html -D /tmp/docs.h)"
     ],
     "deny": [
       "Bash(rm -rf *)",
@@ -57,6 +84,25 @@
       "Read(./.env.*)",
       "Read(~/.ssh/**)",
       "Read(~/.aws/**)"
-    ]
-  }
+    ],
+    "defaultMode": "auto"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.py",
+    "padding": 0,
+    "refreshInterval": 1
+  },
+  "enabledPlugins": {
+    "warp@claude-code-warp": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-warp": {
+      "source": {
+        "source": "github",
+        "repo": "warpdotdev/claude-code-warp"
+      }
+    }
+  },
+  "skipAutoPermissionPrompt": true
 }
