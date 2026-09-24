@@ -1,29 +1,44 @@
 {
+  "edit_predictions": {
+    "allow_data_collection": "no"
+  },
+  "lsp_document_colors": "inlay",
+  "code_lens": "on",
+  "inlay_hints": {
+    "show_background": true,
+    "enabled": true
+  },
+  "diff_view_style": "split",
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "agent": {
+    "expand_terminal_card": false,
+    "expand_edit_card": false,
+    "thinking_display": "always_collapsed",
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "minimap": {
     "show": "always",
-    "display_in": "active_editor",
+    "display_in": "all_editors",
   },
   "git_panel": {
+    "group_by": "none",
     "dock": "left",
     "tree_view": true,
   },
   "auto_install_extensions": {
     "dockerfile": true,
     "git-firefly": true,
+    "helm": true,
     "html": true,
     "just": true,
     "log": true,
@@ -43,11 +58,15 @@
   "agent_servers": {
     "codex-acp": {
       "default_config_options": {
-        "reasoning_effort": "xhigh"
+        "reasoning_effort": "xhigh",
       },
       "type": "registry",
     },
     "claude-acp": {
+      "default_config_options": {
+        "model": "claude-fable-5[1m]",
+        "mode": "auto"
+      },
       "type": "registry",
     },
   },
@@ -65,5 +84,47 @@
     "mode": "light",
     "light": "One Light",
     "dark": "One Dark Pro",
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["basedpyright", "ruff", "!ty"],
+    },
+  },
+  // The Helm extension only claims `.helmignore` on its own, so chart files have to be
+  // mapped by hand. Anything under a `templates/` dir gets the go-template grammar;
+  // values.yaml stays plain YAML (it has no template syntax and helm-ls reads it as data).
+  "file_types": {
+    "Helm": [
+      "**/templates/**/*.yaml",
+      "**/templates/**/*.yml",
+      "**/templates/**/*.tpl",
+      "**/helmfile.d/**/*.yaml",
+      "**/helmfile.d/**/*.yml",
+      "helmfile.yaml",
+      "helmfile.yml",
+      "Chart.yaml",
+      "Chart.yml",
+    ],
+  },
+  "lsp": {
+    "helm_ls": {
+      "settings": {
+        "helm-ls": {
+          "logLevel": "info",
+          // helm-ls delegates plain-YAML diagnostics to yaml-language-server, which isn't
+          // installed. Flip to true after `brew install yaml-language-server`.
+          "yamlls": {
+            "enabled": false,
+          },
+        },
+      },
+    },
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "typeCheckingMode": "standard",
+        },
+      },
+    },
   },
 }

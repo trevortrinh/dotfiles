@@ -1,9 +1,11 @@
 export PATH="$HOME/.local/bin:$PATH"
 
-# aliases
-alias k="kubectl"
-alias g="gcloud"
-alias qb="kubie"
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
 
 # zsh plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -14,6 +16,3 @@ eval "$(zoxide init zsh)"
 
 # starship prompt (keep last)
 eval "$(starship init zsh)"
-
-# podman
-sudo ln -s /opt/homebrew/bin/podman /usr/local/bin/docker

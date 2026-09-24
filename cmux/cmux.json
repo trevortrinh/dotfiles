@@ -1,0 +1,34 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+
+  // Full reference: `cmux docs settings`. Reload without restarting: `cmux reload-config`.
+
+  "app": {
+    "reorderOnNotification": false,
+    "hideTabCloseButton": true,
+    "confirmQuit": "dirty-only",
+    "sendAnonymousTelemetry": false,
+    // Keep sidebar order fixed: no jumping on notifications or sent prompts.
+    "iMessageMode": false
+  },
+
+  // Muted slate instead of the built-in bright blue (also the unread ring).
+  "notifications": { "paneFlashColor": "#7f8fa6" },
+
+  // Names only: hideAllDetails drops every per-workspace detail row. The rest
+  // only matters if it is turned back off.
+  "sidebar": {
+    "hideAllDetails": true,
+    "notificationMessageLineLimit": 2,
+    "branchLayout": "inline",
+    "pathLastSegmentOnly": true,
+    "showLog": false,
+    "showProgress": false,
+    "showPorts": false,
+    "showSSH": false
+  },
+
+  // New splits halve the focused pane; this evens out every pane in the workspace.
+  "shortcuts": { "bindings": { "equalizeSplits": "cmd+shift+=" } }
+}

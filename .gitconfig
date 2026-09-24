@@ -6,8 +6,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [pull]
 	ff = only
 	rebase = true
@@ -15,3 +13,7 @@
 	autoSetupRemote = true
 [core]
 	autocrlf = input
+
+# Machine-specific identity/signing overrides live outside the repo.
+[include]
+	path = ~/.gitconfig.local

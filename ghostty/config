@@ -1,0 +1,10 @@
+# Ghostty / cmux. Hack at 13pt, the same as Warp's default. Nerd Font icons
+# (starship's git branch etc.) come from Ghostty's built-in set. brew: font-hack
+font-family = Hack
+font-size = 13
+
+# Keep unfocused cmux/Ghostty splits at full brightness (default 0.7 dims them).
+unfocused-split-opacity = 1
+
+# Dark mode: Nord (softer than the default's bright white). Light mode keeps cmux's default.
+theme = dark:Nord

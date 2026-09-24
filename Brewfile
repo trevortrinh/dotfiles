@@ -15,6 +15,7 @@ brew "zsh-syntax-highlighting"
 
 # Fonts
 cask "font-fira-code-nerd-font"
+cask "font-hack"
 
 # Apps
 cask "alt-tab"

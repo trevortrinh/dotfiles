@@ -1,0 +1,5 @@
+[net]
+# Use the system git CLI for fetches instead of cargo's built-in libgit2.
+# libgit2's ssh-agent negotiation fails for some private git deps over SSH
+# ("no usernames succeeded: `git`"); shelling out to the git CLI fixes it.
+git-fetch-with-cli = true

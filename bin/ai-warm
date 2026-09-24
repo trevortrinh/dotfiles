@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# ai-warm — keep the 5-hour usage windows for Claude AND Codex cycling.
+#
+# Both plans meter usage in rolling 5-hour windows; a new window opens on your
+# first request. This fires one cheap ping to each CLI every ~5 hours so the
+# windows keep cycling even while you're idle, letting you max out available
+# usage instead of leaving windows unstarted. Cheap by design: trivial prompt,
+# cheapest model (Claude → Haiku; Codex is locked to its subscription model on a
+# ChatGPT account, so we drop reasoning effort to "low").
+#
+# Each ping is bounded by a timeout: an unauthenticated CLI hangs (e.g. waiting
+# on a macOS keychain dialog) rather than failing, and a cron of hung processes
+# would pile up. On timeout we kill it and record a failure.
+#
+# Usage:
+#   ai-warm            # loop, pinging both every interval until Ctrl-C
+#   ai-warm once       # single ping to each (what the launchd agent runs)
+#
+# Env overrides:
+#   AI_WARM_INTERVAL       seconds between rounds (default 18000 = 5h)
+#   AI_WARM_PROMPT         prompt text to send (default "ping")
+#   AI_WARM_TIMEOUT        seconds before a stuck ping is killed (default 120)
+#   AI_WARM_CLAUDE_MODEL   claude model (default claude-haiku-4-5, the cheapest)
+#   AI_WARM_CODEX_EFFORT   codex reasoning effort (default "low", the cheapest)
+set -uo pipefail
+
+INTERVAL="${AI_WARM_INTERVAL:-18000}"
+PROMPT="${AI_WARM_PROMPT:-ping}"
+PING_TIMEOUT="${AI_WARM_TIMEOUT:-120}"
+CLAUDE_MODEL="${AI_WARM_CLAUDE_MODEL:-claude-haiku-4-5}"
+CODEX_EFFORT="${AI_WARM_CODEX_EFFORT:-low}"
+
+# Run "$@" in the background; kill it after PING_TIMEOUT. Returns the command's
+# exit code, or nonzero if it had to be killed.
+with_timeout() {
+  "$@" &
+  local pid=$!
+  ( sleep "$PING_TIMEOUT"; kill -TERM "$pid" 2>/dev/null; sleep 3; kill -KILL "$pid" 2>/dev/null ) &
+  local watcher=$!
+  local rc=0
+  wait "$pid" 2>/dev/null || rc=$?
+  kill "$watcher" 2>/dev/null || true
+  wait "$watcher" 2>/dev/null || true
+  return "$rc"
+}
+
+ping_claude() { claude -p --model "$CLAUDE_MODEL" "$PROMPT" </dev/null >/dev/null 2>&1; }
+ping_codex()  { codex exec --skip-git-repo-check -c "model_reasoning_effort=\"$CODEX_EFFORT\"" "$PROMPT" </dev/null >/dev/null 2>&1; }
+
+tick() {
+  local ts c x
+  ts="$(date '+%Y-%m-%d %H:%M:%S')"
+  if command -v claude >/dev/null 2>&1 && with_timeout ping_claude; then c=ok; else c=FAIL; fi
+  if command -v codex  >/dev/null 2>&1 && with_timeout ping_codex;  then x=ok; else x=FAIL; fi
+  printf '%s  claude=%s codex=%s\n' "$ts" "$c" "$x"
+}
+
+if [ "${1:-}" = "once" ]; then
+  tick
+  exit 0
+fi
+
+echo "ai-warm: pinging claude+codex every ${INTERVAL}s — Ctrl-C to stop"
+while true; do
+  tick
+  sleep "$INTERVAL"
+done
