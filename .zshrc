@@ -12,6 +12,9 @@ source $HOME/Developer/dotfiles/zsh/warp-keys.zsh
 
 # zsh plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# warp-keys rebinds right/cmd+right/opt+right to custom widgets; keep them accepting suggestions
+ZSH_AUTOSUGGEST_ACCEPT_WIDGETS+=(warp-move-forward-char warp-move-end-of-line)
+ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=(warp-move-emacs-forward-word)
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zoxide
