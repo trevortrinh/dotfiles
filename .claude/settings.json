@@ -33,6 +33,7 @@
       "Bash(node *)",
       "Bash(uv *)",
       "Bash(python *)",
+      "Bash(python3 *)",
       "Bash(pytest *)",
       "Bash(pip install *)",
       "Bash(cargo *)",
@@ -44,10 +45,6 @@
       "Bash(brew *)",
       "Bash(grep *)",
       "Bash(pdftotext *)",
-      "Bash(for dir:*)",
-      "Bash(do echo:*)",
-      "Bash(done)",
-      "WebFetch(domain:github.com)",
       "Read(//tmp/**)"
     ],
     "deny": [
