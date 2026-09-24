@@ -8,3 +8,17 @@ unfocused-split-opacity = 1
 
 # Dark mode: Nord (softer than the default's bright white). Light mode keeps cmux's default.
 theme = dark:Nord
+
+# Warp-style prompt selection; the zsh half is zsh/warp-keys.zsh.
+# performable: shift+arrows adjust a mouse selection if there is one, else go to zsh.
+keybind = performable:shift+arrow_left=adjust_selection:left
+keybind = performable:shift+arrow_right=adjust_selection:right
+keybind = alt+shift+arrow_left=text:\x1b[1;4D
+keybind = alt+shift+arrow_right=text:\x1b[1;4C
+keybind = super+shift+arrow_left=text:\x1b[1;10D
+keybind = super+shift+arrow_right=text:\x1b[1;10C
+keybind = super+a=text:\x1b[97;9u
+keybind = super+x=text:\x1b[120;9u
+# cmd+c copies a mouse selection, then tells zsh to copy its keyboard selection.
+keybind = super+c=copy_to_clipboard
+keybind = chain=text:\x1b[99;9u
