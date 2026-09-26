@@ -13,6 +13,13 @@
     "iMessageMode": false
   },
 
+  // Cmd-clicked terminal links and `open https://…` go to the default browser,
+  // not the embedded cmux browser.
+  "browser": {
+    "openTerminalLinksInCmuxBrowser": false,
+    "interceptTerminalOpenCommandInCmuxBrowser": false
+  },
+
   // Muted slate instead of the built-in bright blue (also the unread ring).
   "notifications": { "paneFlashColor": "#7f8fa6" },
 
